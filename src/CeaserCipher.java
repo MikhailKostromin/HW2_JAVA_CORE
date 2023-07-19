@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Написать метод «Шифр Цезаря»,
  * с булевым параметром зашифрования и расшифро- вания и числовым ключом;
@@ -8,7 +6,7 @@ import java.util.Scanner;
 public class CeaserCipher {
     private static final String alphabet = "абвгдеёжзиклмнопрстуфхцчшщъыьэя";
 
-    private static char symbol_right_shift(char symbol, int shift) {
+    private static char symbolRightShift(char symbol, int shift) {
         if (alphabet.indexOf(symbol) != -1) {
             return alphabet.charAt((alphabet.indexOf(symbol) + shift) % alphabet.length());
         } else {
@@ -21,7 +19,7 @@ public class CeaserCipher {
         return "" + s.charAt(s.length() - 1) + reverse(s.substring(0, s.length() - 1));
     }
 
-    private static char symbol_left_shift(char symbol, int shift) {
+    private static char symbolLeftShift(char symbol, int shift) {
         if (reverse(alphabet).indexOf(symbol) != -1) {
             return reverse(alphabet).charAt((reverse(alphabet).indexOf(symbol) + shift) % reverse(alphabet).length());
         } else {
@@ -42,7 +40,7 @@ public class CeaserCipher {
 
         System.out.println("Зашифрованный текст:");
         for (int i = 0; i < text.length(); ++i) {
-            System.out.print(symbol_right_shift(text.charAt(i), shift));
+            System.out.print(symbolRightShift(text.charAt(i), shift));
         }
         System.out.println();
 
@@ -53,7 +51,7 @@ public class CeaserCipher {
         text2 = text2.toLowerCase();
         System.out.println("Расшифрованный текст:");
         for (int i = 0; i < text2.length(); i++) {
-            System.out.print(symbol_left_shift(text2.charAt(i), shift));
+            System.out.print(symbolLeftShift(text2.charAt(i), shift));
         }
     }
 }
